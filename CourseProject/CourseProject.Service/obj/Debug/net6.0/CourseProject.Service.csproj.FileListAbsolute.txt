@@ -1,0 +1,17 @@
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\bin\Debug\net6.0\CourseProject.Service.deps.json
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\bin\Debug\net6.0\CourseProject.Service.runtimeconfig.json
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\bin\Debug\net6.0\CourseProject.Service.dll
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\bin\Debug\net6.0\CourseProject.Service.pdb
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.csproj.AssemblyReference.cache
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.AssemblyInfoInputs.cache
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.AssemblyInfo.cs
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.csproj.CoreCompileInputs.cache
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.dll
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\refint\CourseProject.Service.dll
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.pdb
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.genruntimeconfig.cache
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\ref\CourseProject.Service.dll
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\bin\Debug\net6.0\CourseProject.Data.dll
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\bin\Debug\net6.0\CourseProject.Data.pdb
+D:\Coding\APIs\APIproject\CourseProject\CourseProject.Service\obj\Debug\net6.0\CourseProject.Service.csproj.CopyComplete
