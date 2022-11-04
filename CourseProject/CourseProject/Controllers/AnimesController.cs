@@ -15,7 +15,7 @@ namespace CourseProject.Controllers
         public AnimesController(IBaseService<Anime> animeService) => this.animeService = animeService;
 
         [HttpGet]
-        public ActionResult<IEnumerable<Anime>> Get() => Ok(animeService.GetAll().ToArray());
+        public ActionResult<IEnumerable<Anime>> Get() => Ok(animeService.GetAll());
 
         [HttpGet("{id}")]
         public ActionResult<Anime> Get([FromRoute] Guid id) => Ok(animeService.Get(id));
@@ -36,7 +36,7 @@ namespace CourseProject.Controllers
                 return NotFound();
             }
 
-            anime.Id = id.Value;
+            anime = anime with { Id = id.Value };
 
             animeService.Update(anime);
 

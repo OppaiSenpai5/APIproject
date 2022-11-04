@@ -4,13 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CourseProject.Data.Entities
 {
-    public abstract class BaseEntity
+    public abstract record BaseEntity
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; init; }
 
         public BaseEntity() => this.Id = Guid.NewGuid();
     }
