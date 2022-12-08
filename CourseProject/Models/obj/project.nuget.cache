@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "PWKo4ZV6oedN98yRW9rLKhAb8ca2tapTgWcCw1uy8H6w73u2Ofg37OjdOLLsPsrKsIgW/A5GTgm+mTTXMF3V0w==",
+  "success": true,
+  "projectFilePath": "D:\\Coding\\APIs\\APIproject\\CourseProject\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
