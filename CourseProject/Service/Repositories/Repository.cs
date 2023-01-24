@@ -24,15 +24,8 @@ namespace Service.Repositories
 
         public virtual void Create(T entity)
         {
-            try
-            {
-                this.dbSet.Add(entity);
-                Save();
-            }
-            catch
-            {
-                throw new BadRequestException();
-            }
+            this.dbSet.Add(entity);
+            Save();
         }
 
         public virtual void Delete(T entity)
@@ -46,7 +39,7 @@ namespace Service.Repositories
 
         public virtual T Get(Guid id) => this.dbSet.Find(id);
 
-        public virtual IEnumerable<T> GetAll() => this.dbSet.ToList();
+        public virtual IQueryable<T> GetAll() => this.dbSet.AsQueryable();
 
         public virtual void Update(T entity)
         {

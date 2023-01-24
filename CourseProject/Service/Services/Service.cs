@@ -20,13 +20,31 @@ namespace Service.Services
         public Service(TRepository repository) =>
             this.repository = repository;
 
-        public virtual void Create(TEntity entity) =>
-            this.repository.Create(entity);
+        public virtual void Create(TEntity entity)
+        {
+            try
+            {
+                this.repository.Create(entity);
+            }
+            catch
+            {
+                throw new BadRequestException();
+            }
+        }
 
-        public virtual void Delete(Guid id) => 
-            this.repository.Delete(GetById(id));
+        public virtual void Delete(Guid id)
+        {
+            try
+            {
+                this.repository.Delete(GetById(id));
+            }
+            catch
+            {
+                throw new BadRequestException();
+            }
+        }
 
-        public virtual IEnumerable<TEntity> GetAll() =>
+        public virtual IQueryable<TEntity> GetAll() =>
             this.repository.GetAll();
 
         public virtual TEntity GetById(Guid id)
@@ -39,7 +57,16 @@ namespace Service.Services
             throw new NotFoundException();
         }
 
-        public virtual void Update(TEntity entity) =>
-            this.repository.Update(entity);
+        public virtual void Update(TEntity entity)
+        {
+            try
+            {
+                this.repository.Update(entity);
+            }
+            catch
+            {
+                throw new BadRequestException();
+            }
+        }
     }
 }

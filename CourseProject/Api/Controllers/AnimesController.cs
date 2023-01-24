@@ -31,8 +31,12 @@ namespace Api.Controllers
             return Ok(service.GetDtoById(id));
         }
 
+        [HttpGet("search")]
+        public IActionResult Search([FromQuery] string query) =>
+            Ok(this.service.Search(query));
+
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post([FromBody] AnimeDto request)
         {
             var anime = service.Create(request);
@@ -41,6 +45,7 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id:Guid}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update([FromRoute] Guid id, [FromBody] AnimeDto request)
         {
             service.Update(id, request);
@@ -48,10 +53,15 @@ namespace Api.Controllers
         }
 
         [HttpDelete("{id:Guid}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete([FromRoute] Guid id)
         {
             service.Delete(id);
             return NoContent();
         }
+
+        [HttpGet("favourites")]
+        public IActionResult GetFavouriteAnimes(Guid userId) => 
+            Ok(this.service.UserFavourites(userId));
     }
 }

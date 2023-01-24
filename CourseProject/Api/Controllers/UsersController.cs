@@ -28,12 +28,12 @@ namespace Api.Controllers
             return Ok(this.service.GetDto(id));
         }
 
-        [HttpPost]
+        [HttpPost("add_favourite_anime")]
         [Authorize]
-        public IActionResult AddFavouriteAnime([FromBody] Guid id)
+        public IActionResult AddFavouriteAnime([FromHeader] Guid id)
         {
             this.service.AddFavouriteAnime(id);
-            return NoContent();
+            return Ok();
         }
     }
 }

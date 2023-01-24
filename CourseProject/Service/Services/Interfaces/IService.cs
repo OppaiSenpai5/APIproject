@@ -10,7 +10,7 @@ namespace Service.Services.Interfaces
     public interface IService<T> where T : Entity
     {
         T GetById(Guid id);
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         void Create(T entity);
         void Update(T entity);
         void Delete(Guid id);

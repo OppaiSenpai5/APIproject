@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Service.Services
 {
@@ -16,11 +17,18 @@ namespace Service.Services
         Service<Anime, IAnimeRepository>, IAnimeService, IService<Anime>
     {
         private readonly IMapper mapper;
+        private readonly IUserAnimeRepository userAnimeRepository;
+        private readonly IUserRepository userRepository;
 
-        public AnimeService(IAnimeRepository repository, IMapper mapper)
+        public AnimeService(IAnimeRepository repository,
+            IMapper mapper,
+            IUserAnimeRepository userAnimeRepository,
+            IUserRepository userRepository)
             : base(repository)
         {
             this.mapper = mapper;
+            this.userAnimeRepository = userAnimeRepository;
+            this.userRepository = userRepository;
         }
 
         public Anime Create(AnimeDto animeDto)
@@ -42,10 +50,29 @@ namespace Service.Services
         public AnimeDto GetDtoById(Guid id) => 
             mapper.Map<AnimeDto>(GetById(id));
 
+        public IEnumerable<AnimeDto> Search(string query)
+        {
+            return this.GetAll()
+                .Where(a => a.Title.Contains(query,
+                    StringComparison.OrdinalIgnoreCase))
+                .Select(x => this.mapper.Map<AnimeDto>(x));
+        }
+
         public void Update(Guid id, AnimeDto animeDto)
         {
             var anime = mapper.Map<Anime>(animeDto) with { Id = id };
             Update(anime);
+        }
+
+        public IEnumerable<AnimeDto> UserFavourites(Guid userId)
+        {
+            if (!this.userRepository.ExistsById(userId))
+                throw new NotFoundException(new { errorMessage = "User not found." });
+
+            return this.userAnimeRepository.GetAll()
+                .Where(ua => ua.UserId == userId)
+                .Include(ua => ua.Anime)
+                .Select(ua => this.mapper.Map<AnimeDto>(ua.Anime));
         }
     }
 }

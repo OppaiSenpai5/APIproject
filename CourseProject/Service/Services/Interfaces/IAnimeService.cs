@@ -14,5 +14,7 @@ namespace Service.Services.Interfaces
         AnimeDto GetDtoById(Guid id);
         Anime Create(AnimeDto animeDto);
         void Update(Guid id, AnimeDto animeDto);
+        IEnumerable<AnimeDto> Search(string query);
+        IEnumerable<AnimeDto> UserFavourites(Guid userId);
     }
 }

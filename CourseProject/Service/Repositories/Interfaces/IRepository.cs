@@ -9,7 +9,7 @@ namespace Service.Repositories.Interfaces
 {
     public interface IRepository<T> where T : Entity
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         T Get(Guid id);
         void Create(T entity);
         void Update(T entity);
