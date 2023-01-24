@@ -22,5 +22,7 @@ namespace Models.Entities
         public string Email { get; init; }
         [Required]
         public Role Role { get; init; } = Role.User;
+
+        public IEnumerable<UserAnime> UserAnimes { get; set; }
     }
 }

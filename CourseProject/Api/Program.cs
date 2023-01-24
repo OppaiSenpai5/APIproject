@@ -1,7 +1,8 @@
-using Domain;
+using Api;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Models.Mapper;
 using Persistence;
@@ -44,9 +45,11 @@ services
     .AddScoped<IAnimeService, AnimeService>()
     .AddScoped<IUserRepository, UserRepository>()
     .AddScoped<IUserService, UserService>()
-    .AddScoped<IAuthService, AuthService>();
+    .AddScoped<IAuthService, AuthService>()
+    .AddScoped<IUserAnimeRepository, UserAnimeRepository>()
+    .AddScoped<IUserAnimeService, UserAnimeService>();
 
-services.AddControllers(options => 
+services.AddControllers(options =>
     options.Filters.Add<HttpResponseExceptionFilter>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
@@ -62,6 +65,8 @@ services.AddSwaggerGen(options =>
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+
+services.AddResponseCaching(x => x.MaximumBodySize = 1024);
 
 var app = builder.Build();
 
@@ -79,5 +84,19 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseResponseCaching();
+
+app.Use(async (context, next) =>
+{
+    context.Response.GetTypedHeaders().CacheControl =
+        new CacheControlHeaderValue
+        {
+            Public = true,
+            MaxAge = TimeSpan.FromSeconds(10)
+        };
+
+    await next();
+});
 
 app.Run();

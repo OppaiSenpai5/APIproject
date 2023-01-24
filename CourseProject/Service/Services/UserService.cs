@@ -1,19 +1,10 @@
 ﻿using AutoMapper;
-using Service.Exceptions;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using Models.Dtos;
 using Models.Entities;
 using Service.Repositories.Interfaces;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Services
 {
@@ -22,12 +13,19 @@ namespace Service.Services
     {
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IMapper mapper;
+        private readonly IUserAnimeService userAnimeService;
+        private string currentUserId =>
+            this.httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier)!;
 
-        public UserService(IUserRepository repository, IHttpContextAccessor httpContextAccessor, IMapper mapper)
+        public UserService(IUserRepository repository,
+            IHttpContextAccessor httpContextAccessor,
+            IMapper mapper,
+            IUserAnimeService userAnimeService)
             : base(repository)
         {
             this.httpContextAccessor = httpContextAccessor;
             this.mapper = mapper;
+            this.userAnimeService = userAnimeService;
         }
 
         public IEnumerable<UserDto> GetAllDto()
@@ -38,6 +36,12 @@ namespace Service.Services
         public UserDto GetDto(Guid id)
         {
             return mapper.Map<UserDto>(GetById(id));
+        }
+
+        public void AddFavouriteAnime(Guid id)
+        {
+            var userId = Guid.Parse(currentUserId);
+            this.userAnimeService.Create(new UserAnime { AnimeId = id, UserId = userId });
         }
     }
 }

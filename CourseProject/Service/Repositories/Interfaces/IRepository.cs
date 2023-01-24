@@ -14,5 +14,6 @@ namespace Service.Repositories.Interfaces
         void Create(T entity);
         void Update(T entity);
         void Delete(T entity);
+        bool ExistsById(Guid id);
     }
 }

@@ -25,6 +25,7 @@ namespace Persistence
 
             builder.ApplyConfiguration(new AnimeConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new UserAnimeConfiguration());
         }
     }
 }

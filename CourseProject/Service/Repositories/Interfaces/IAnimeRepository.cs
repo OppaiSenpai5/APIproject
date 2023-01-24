@@ -9,7 +9,6 @@ namespace Service.Repositories.Interfaces
 {
     public interface IAnimeRepository : IRepository<Anime>
     {
-        bool ExistsById(Guid id);
         bool ExistsByTitle(string title);
     }
 }

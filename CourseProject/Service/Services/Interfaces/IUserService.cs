@@ -12,5 +12,6 @@ namespace Service.Services.Interfaces
     {
         IEnumerable<UserDto> GetAllDto();
         UserDto GetDto(Guid id);
+        void AddFavouriteAnime(Guid id);
     }
 }

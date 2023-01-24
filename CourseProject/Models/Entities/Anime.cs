@@ -31,5 +31,8 @@ namespace Models.Entities
 
         [XmlElement("synopsis")]
         public string? Synopsis { get; init; }
+
+        [XmlIgnore]
+        public IEnumerable<UserAnime> UserAnimes { get; set; }
     }
 }
