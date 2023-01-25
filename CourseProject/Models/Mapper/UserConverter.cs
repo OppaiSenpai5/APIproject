@@ -10,7 +10,7 @@ namespace Models.Mapper
     {
         public User Convert(RegisterDto source, User destination, ResolutionContext context)
         {
-            using(var hmac = new HMACSHA512())
+            using (var hmac = new HMACSHA512())
             {
                 var passwordSalt = hmac.Key;
                 var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(source.Password));
@@ -27,7 +27,7 @@ namespace Models.Mapper
 
         public User Convert(LoginDto source, User destination, ResolutionContext context)
         {
-            using(var hmac = new HMACSHA512(destination.PasswordSalt))
+            using (var hmac = new HMACSHA512(destination.PasswordSalt))
             {
                 return destination with
                 {

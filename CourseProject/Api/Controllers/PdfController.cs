@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 
 namespace Api.Controllers
@@ -10,7 +9,7 @@ namespace Api.Controllers
     {
         private readonly IPdfService pdfService;
 
-        public PdfController(IPdfService pdfService) => 
+        public PdfController(IPdfService pdfService) =>
             this.pdfService = pdfService;
 
         [HttpGet]

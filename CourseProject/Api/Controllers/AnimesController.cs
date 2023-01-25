@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models.Dtos;
 using Service.Services.Interfaces;
@@ -61,7 +59,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("favourites")]
-        public IActionResult GetFavouriteAnimes(Guid userId) => 
+        public IActionResult GetFavouriteAnimes(Guid userId) =>
             Ok(this.service.UserFavourites(userId));
     }
 }

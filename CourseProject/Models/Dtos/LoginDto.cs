@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.Dtos
 {
@@ -12,7 +7,7 @@ namespace Models.Dtos
     {
         [Required]
         public string Username { get; init; }
-        [Required]  
+        [Required]
         [PasswordPropertyText]
         public string Password { get; init; }
     }

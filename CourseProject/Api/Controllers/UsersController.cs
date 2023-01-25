@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 
@@ -23,7 +22,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id:Guid}")]
-        public IActionResult Get(Guid id) 
+        public IActionResult Get(Guid id)
         {
             return Ok(this.service.GetDto(id));
         }

@@ -1,19 +1,14 @@
 ﻿using AutoMapper;
-using Service.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Models.Dtos;
 using Models.Entities;
-using Service.Repositories;
+using Service.Exceptions;
 using Service.Repositories.Interfaces;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Services
 {
@@ -40,7 +35,7 @@ namespace Service.Services
 
             if (user is null)
             {
-                throw new BadRequestException(new { error = "Wrong username or password."});
+                throw new BadRequestException(new { error = "Wrong username or password." });
             }
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));

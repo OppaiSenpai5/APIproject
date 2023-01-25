@@ -1,19 +1,14 @@
 ﻿using AutoMapper;
-using Service.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using Models.Dtos;
 using Models.Entities;
+using Service.Exceptions;
 using Service.Repositories.Interfaces;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace Service.Services
 {
-    public class AnimeService : 
+    public class AnimeService :
         Service<Anime, IAnimeRepository>, IAnimeService, IService<Anime>
     {
         private readonly IMapper mapper;
@@ -36,7 +31,7 @@ namespace Service.Services
             if (this.repository.ExistsByTitle(animeDto.Title))
             {
                 throw new BadRequestException(
-                    new { errorMessage = "An anime with that name already exists."});
+                    new { errorMessage = "An anime with that name already exists." });
             }
 
             Anime anime = mapper.Map<Anime>(animeDto);
@@ -44,10 +39,10 @@ namespace Service.Services
             return anime;
         }
 
-        public IEnumerable<AnimeDto> GetAllDto() => 
+        public IEnumerable<AnimeDto> GetAllDto() =>
             GetAll().Select(a => mapper.Map<AnimeDto>(a)).ToList();
 
-        public AnimeDto GetDtoById(Guid id) => 
+        public AnimeDto GetDtoById(Guid id) =>
             mapper.Map<AnimeDto>(GetById(id));
 
         public IEnumerable<AnimeDto> Search(string query)

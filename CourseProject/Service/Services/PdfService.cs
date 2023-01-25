@@ -1,13 +1,7 @@
-﻿using DinkToPdf.Contracts;
-using DinkToPdf;
-using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Common;
+﻿using DinkToPdf;
+using DinkToPdf.Contracts;
 using Models.Entities;
+using Service.Services.Interfaces;
 
 namespace Service.Services
 {
@@ -15,6 +9,8 @@ namespace Service.Services
     {
         private readonly IConverter converter;
         private readonly IAnimeService animeService;
+        private IEnumerable<Anime> animes =>
+            this.animeService.GetAll();
 
         public PdfService(IConverter converter, IAnimeService animeService)
         {
@@ -35,12 +31,12 @@ namespace Service.Services
             var objectSettings = new ObjectSettings
             {
                 PagesCount = true,
-                HtmlContent = this.GetHTMLString(),
+                HtmlContent = this.HTMLString,
                 WebSettings = { DefaultEncoding = "utf-8" },
                 HeaderSettings = { FontName = "Arial" },
                 FooterSettings = { FontName = "Arial" }
             };
-            var pdf = new HtmlToPdfDocument()
+            var pdf = new HtmlToPdfDocument
             {
                 GlobalSettings = globalSettings,
                 Objects = { objectSettings }
@@ -49,14 +45,7 @@ namespace Service.Services
             return this.converter.Convert(pdf);
         }
 
-        private IEnumerable<Anime> animes =>
-            this.animeService.GetAll();
-
-        private IEnumerable<IGrouping<string, Anime>> animeYearGroupings =>
-            this.animes.GroupBy(a => a.StartDate is DateTime date ?
-                date.Year.ToString() : "Not Yet Aired");
-
-        private string GetHTMLString() =>
+        private string HTMLString =>
 $@"<html>
     <head>
         <style>
@@ -94,7 +83,7 @@ $@"<html>
             </tr>
             <tr>
                 <td>Animes</td>
-                <td>{ this.animes.Count() }</td>
+                <td>{this.animes.Count()}</td>
             </tr>
         </table>
 
@@ -103,19 +92,23 @@ $@"<html>
                 <th>Year</td>
                 <th>Animes</th>
             </tr>
-            { trTagForAnimeYear() }
+            {trTagForAnimeYear()}
         </table>
     </body>
 </html>";
 
         private string trTagForAnimeYear()
         {
-            var trs = this.animeYearGroupings.Select(x =>
+            var trs = this.animes
+                .GroupBy(a => a.StartDate is DateTime date ?
+                    date.Year.ToString() : "Not Yet Aired")
+                .OrderBy(x => x.Key)
+                .Select(x =>
                 $@"
-                    <tr>
-                        <td>{x.Key}</td>
-                        <td>{x.Count()}</td>
-                    </tr>
+                <tr>
+                    <td>{x.Key}</td>
+                    <td>{x.Count()}</td>
+                </tr>
                 ");
 
             return string.Join("\n", trs);

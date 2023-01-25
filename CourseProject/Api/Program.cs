@@ -1,6 +1,6 @@
 using Api;
-using DinkToPdf.Contracts;
 using DinkToPdf;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -8,10 +8,6 @@ using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Models.Mapper;
 using Persistence;
-using Service.Repositories;
-using Service.Repositories.Interfaces;
-using Service.Services;
-using Service.Services.Interfaces;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
@@ -44,15 +40,7 @@ services.AddHttpContextAccessor();
 
 services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 
-services
-    .AddScoped<IAnimeRepository, AnimeRepository>()
-    .AddScoped<IAnimeService, AnimeService>()
-    .AddScoped<IUserRepository, UserRepository>()
-    .AddScoped<IUserService, UserService>()
-    .AddScoped<IAuthService, AuthService>()
-    .AddScoped<IUserAnimeRepository, UserAnimeRepository>()
-    .AddScoped<IUserAnimeService, UserAnimeService>()
-    .AddScoped<IPdfService, PdfService>();
+services.AddCustomServices();
 
 services.AddControllers(options =>
     options.Filters.Add<HttpResponseExceptionFilter>());

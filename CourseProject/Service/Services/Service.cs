@@ -1,13 +1,7 @@
-﻿using Service.Exceptions;
-using Models.Entities;
-using Service.Repositories;
+﻿using Models.Entities;
+using Service.Exceptions;
 using Service.Repositories.Interfaces;
 using Service.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Service.Services
 {
