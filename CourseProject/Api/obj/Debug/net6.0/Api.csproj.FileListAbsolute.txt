@@ -174,3 +174,4 @@ D:\Coding\APIs\APIproject\CourseProject\Api\obj\Debug\net6.0\refint\Api.dll
 D:\Coding\APIs\APIproject\CourseProject\Api\obj\Debug\net6.0\Api.pdb
 D:\Coding\APIs\APIproject\CourseProject\Api\obj\Debug\net6.0\Api.genruntimeconfig.cache
 D:\Coding\APIs\APIproject\CourseProject\Api\obj\Debug\net6.0\ref\Api.dll
+D:\Coding\APIs\APIproject\CourseProject\Api\bin\Debug\net6.0\DinkToPdf.dll

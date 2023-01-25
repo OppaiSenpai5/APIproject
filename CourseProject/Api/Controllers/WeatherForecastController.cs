@@ -15,12 +15,10 @@ namespace Api.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IUserService userService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IUserService userService)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
-            this.userService = userService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]

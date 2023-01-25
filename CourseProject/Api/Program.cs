@@ -1,4 +1,6 @@
 using Api;
+using DinkToPdf.Contracts;
+using DinkToPdf;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -40,6 +42,8 @@ services.AddDbContext<AppDbContext>(options =>
 
 services.AddHttpContextAccessor();
 
+services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
 services
     .AddScoped<IAnimeRepository, AnimeRepository>()
     .AddScoped<IAnimeService, AnimeService>()
@@ -47,7 +51,8 @@ services
     .AddScoped<IUserService, UserService>()
     .AddScoped<IAuthService, AuthService>()
     .AddScoped<IUserAnimeRepository, UserAnimeRepository>()
-    .AddScoped<IUserAnimeService, UserAnimeService>();
+    .AddScoped<IUserAnimeService, UserAnimeService>()
+    .AddScoped<IPdfService, PdfService>();
 
 services.AddControllers(options =>
     options.Filters.Add<HttpResponseExceptionFilter>());
