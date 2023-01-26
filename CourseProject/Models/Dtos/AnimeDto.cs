@@ -1,8 +1,9 @@
-﻿using Models.Validation;
-using System.ComponentModel.DataAnnotations;
-
-namespace Models.Dtos
+﻿namespace Models.Dtos
 {
+    using Models.Validation;
+    
+    using System.ComponentModel.DataAnnotations;
+    
     public record AnimeDto
     {
         [Required(AllowEmptyStrings = false,

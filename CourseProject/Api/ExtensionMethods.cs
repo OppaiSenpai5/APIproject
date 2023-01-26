@@ -1,10 +1,10 @@
-﻿using Service.Repositories.Interfaces;
-using Service.Repositories;
-using Service.Services.Interfaces;
-using Service.Services;
-
-namespace Api
+﻿namespace Api
 {
+    using Service.Repositories.Interfaces;
+    using Service.Repositories;
+    using Service.Services.Interfaces;
+    using Service.Services;
+
     public static class ExtensionMethods
     {
         public static IServiceCollection AddCustomServices(

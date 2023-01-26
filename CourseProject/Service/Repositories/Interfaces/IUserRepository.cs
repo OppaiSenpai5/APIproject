@@ -1,8 +1,8 @@
-﻿using Models.Dtos;
-using Models.Entities;
-
-namespace Service.Repositories.Interfaces
+﻿namespace Service.Repositories.Interfaces
 {
+    using Models.Dtos;
+    using Models.Entities;
+
     public interface IUserRepository : IRepository<User>
     {
         User GetByUsername(string username);

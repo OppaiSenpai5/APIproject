@@ -1,4 +1,9 @@
+using System.Text;
+
 using Api;
+using Models.Mapper;
+using Persistence;
+
 using DinkToPdf;
 using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,10 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
-using Models.Mapper;
-using Persistence;
 using Swashbuckle.AspNetCore.Filters;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;

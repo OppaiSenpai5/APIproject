@@ -1,8 +1,9 @@
-﻿using Models.Enums;
-using System.ComponentModel.DataAnnotations;
-
-namespace Models.Entities
+﻿namespace Models.Entities
 {
+    using Models.Enums;
+
+    using System.ComponentModel.DataAnnotations;
+
     public record User : Entity
     {
         [Required]

@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Service.Services.Interfaces;
-
-namespace Api.Controllers
+﻿namespace Api.Controllers
 {
+    using Service.Services.Interfaces;
+
+    using Microsoft.AspNetCore.Mvc;
+
     [Route("api/v1/pdf")]
     [ApiController]
     public class PdfController : ControllerBase

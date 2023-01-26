@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Models.Dtos;
-using Service.Services.Interfaces;
-
-namespace Api.Controllers
+﻿namespace Api.Controllers
 {
+    using Models.Dtos;
+    using Service.Services.Interfaces;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    
     [Route("api/v1/animes")]
     [ApiController]
     public class AnimesController : ControllerBase

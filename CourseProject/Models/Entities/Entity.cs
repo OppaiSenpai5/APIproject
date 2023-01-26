@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Models.Entities
+﻿namespace Models.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+
     public abstract record Entity
     {
         [Key]

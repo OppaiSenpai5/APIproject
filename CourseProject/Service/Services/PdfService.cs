@@ -1,10 +1,11 @@
-﻿using DinkToPdf;
-using DinkToPdf.Contracts;
-using Models.Entities;
-using Service.Services.Interfaces;
-
-namespace Service.Services
+﻿namespace Service.Services
 {
+    using Models.Entities;
+    using Service.Services.Interfaces;
+
+    using DinkToPdf;
+    using DinkToPdf.Contracts;
+
     public class PdfService : IPdfService
     {
         private readonly IConverter converter;

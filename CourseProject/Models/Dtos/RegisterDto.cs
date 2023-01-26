@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Models.Dtos
+﻿namespace Models.Dtos
 {
+    using System.ComponentModel.DataAnnotations;
+    
     public record RegisterDto
     {
         [Required]

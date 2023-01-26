@@ -1,13 +1,14 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using Models.Dtos;
-using Models.Entities;
-using Service.Exceptions;
-using Service.Repositories.Interfaces;
-using Service.Services.Interfaces;
-
-namespace Service.Services
+﻿namespace Service.Services
 {
+    using Models.Dtos;
+    using Models.Entities;
+    using Service.Exceptions;
+    using Service.Repositories.Interfaces;
+    using Service.Services.Interfaces;
+
+    using AutoMapper;
+    using Microsoft.EntityFrameworkCore;
+
     public class AnimeService :
         Service<Anime, IAnimeRepository>, IAnimeService, IService<Anime>
     {

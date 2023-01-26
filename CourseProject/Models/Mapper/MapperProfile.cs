@@ -1,9 +1,10 @@
-﻿using AutoMapper;
-using Models.Dtos;
-using Models.Entities;
-
-namespace Models.Mapper
+﻿namespace Models.Mapper
 {
+    using Models.Dtos;
+    using Models.Entities;
+    
+    using AutoMapper;
+
     public class MapperProfile : Profile
     {
         public MapperProfile()

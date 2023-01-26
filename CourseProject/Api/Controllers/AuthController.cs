@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Models.Dtos;
-using Service.Services.Interfaces;
-
+﻿
 namespace Api.Controllers
 {
+    using Models.Dtos;
+    using Service.Services.Interfaces;
+
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     [Route("api/v1/auth")]
     [ApiController]
     [AllowAnonymous]

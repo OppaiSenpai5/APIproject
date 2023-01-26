@@ -1,8 +1,8 @@
-﻿using Models.Dtos;
-using System.ComponentModel.DataAnnotations;
-
-namespace Models.Validation
+﻿namespace Models.Validation
 {
+    using Models.Dtos;
+    using System.ComponentModel.DataAnnotations;
+    
     public static class ModelValidator
     {
         public static ValidationResult ValidEndDate(DateTime endDate, ValidationContext context)

@@ -1,11 +1,13 @@
-﻿using AutoMapper;
-using Models.Dtos;
-using Models.Entities;
-using System.Security.Cryptography;
-using System.Text;
-
-namespace Models.Mapper
+﻿namespace Models.Mapper
 {
+    using System.Security.Cryptography;
+    using System.Text;
+
+    using Models.Dtos;
+    using Models.Entities;
+    
+    using AutoMapper;
+
     public class UserConverter : ITypeConverter<RegisterDto, User>, ITypeConverter<LoginDto, User>
     {
         public User Convert(RegisterDto source, User destination, ResolutionContext context)

@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Models.Entities;
-
-namespace Persistence.Configurations
+﻿namespace Persistence.Configurations
 {
+    using Models.Entities;
+
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
     public class UserAnimeConfiguration : IEntityTypeConfiguration<UserAnime>
     {
         public void Configure(EntityTypeBuilder<UserAnime> builder)

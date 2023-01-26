@@ -1,17 +1,19 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using Models.Dtos;
-using Models.Entities;
-using Service.Exceptions;
-using Service.Repositories.Interfaces;
-using Service.Services.Interfaces;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-
-namespace Service.Services
+﻿namespace Service.Services
 {
+    using System.IdentityModel.Tokens.Jwt;
+    using System.Security.Claims;
+    using System.Text;
+
+    using Models.Dtos;
+    using Models.Entities;
+    using Service.Exceptions;
+    using Service.Repositories.Interfaces;
+    using Service.Services.Interfaces;
+
+    using AutoMapper;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.IdentityModel.Tokens;
+
     public class AuthService : IAuthService
     {
         private readonly IConfiguration config;

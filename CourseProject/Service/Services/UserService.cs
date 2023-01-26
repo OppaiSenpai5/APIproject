@@ -1,13 +1,15 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Models.Dtos;
-using Models.Entities;
-using Service.Repositories.Interfaces;
-using Service.Services.Interfaces;
-using System.Security.Claims;
-
-namespace Service.Services
+﻿namespace Service.Services
 {
+    using System.Security.Claims;
+
+    using Models.Dtos;
+    using Models.Entities;
+    using Service.Repositories.Interfaces;
+    using Service.Services.Interfaces;
+
+    using AutoMapper;
+    using Microsoft.AspNetCore.Http;
+
     public class UserService :
         Service<User, IUserRepository>, IUserService, IService<User>
     {

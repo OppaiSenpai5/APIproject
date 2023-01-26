@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Service.Exceptions;
-
-namespace Api
+﻿namespace Api
 {
+    using Service.Exceptions;
+
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Filters;
+
     public class HttpResponseExceptionFilter : IActionFilter, IOrderedFilter
     {
         public int Order => int.MaxValue - 10;

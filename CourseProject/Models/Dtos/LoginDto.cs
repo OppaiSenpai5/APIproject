@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace Models.Dtos
+﻿namespace Models.Dtos
 {
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    
     public record LoginDto
     {
         [Required]

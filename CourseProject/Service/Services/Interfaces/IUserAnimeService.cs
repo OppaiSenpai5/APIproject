@@ -1,7 +1,7 @@
-﻿using Models.Entities;
-
-namespace Service.Services.Interfaces
+﻿namespace Service.Services.Interfaces
 {
+    using Models.Entities;
+
     public interface IUserAnimeService : IService<UserAnime>
     {
     }

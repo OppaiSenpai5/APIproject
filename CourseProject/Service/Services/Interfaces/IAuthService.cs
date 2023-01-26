@@ -1,7 +1,7 @@
-﻿using Models.Dtos;
-
-namespace Service.Services.Interfaces
+﻿namespace Service.Services.Interfaces
 {
+    using Models.Dtos;
+
     public interface IAuthService
     {
         string GenerateToken(LoginDto login);

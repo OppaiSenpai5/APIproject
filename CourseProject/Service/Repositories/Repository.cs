@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Models.Entities;
-using Persistence;
-using Service.Repositories.Interfaces;
-
-namespace Service.Repositories
+﻿namespace Service.Repositories
 {
+    using Models.Entities;
+    using Persistence;
+    using Service.Repositories.Interfaces;
+    
+    using Microsoft.EntityFrameworkCore;
+
     public abstract class Repository<T> : IRepository<T> where T : Entity
     {
         protected readonly AppDbContext context;

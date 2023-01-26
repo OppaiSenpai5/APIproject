@@ -1,7 +1,7 @@
-﻿using Models.Enums;
-
-namespace Models.Dtos
+﻿namespace Models.Dtos
 {
+    using Models.Enums;
+
     public class UserDto
     {
         public string Username { get; set; }

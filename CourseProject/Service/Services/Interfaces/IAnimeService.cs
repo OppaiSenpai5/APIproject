@@ -1,8 +1,8 @@
-﻿using Models.Dtos;
-using Models.Entities;
-
-namespace Service.Services.Interfaces
+﻿namespace Service.Services.Interfaces
 {
+    using Models.Dtos;
+    using Models.Entities;
+
     public interface IAnimeService : IService<Anime>
     {
         IEnumerable<AnimeDto> GetAllDto();

@@ -1,7 +1,7 @@
-﻿using Models.Entities;
-
-namespace Service.Repositories.Interfaces
+﻿namespace Service.Repositories.Interfaces
 {
+    using Models.Entities;
+
     public interface IRepository<T> where T : Entity
     {
         IQueryable<T> GetAll();

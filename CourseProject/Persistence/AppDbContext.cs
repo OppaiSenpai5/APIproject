@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Models.Entities;
-using Persistence.Configurations;
-
-namespace Persistence
+﻿namespace Persistence
 {
+    using Models.Entities;
+    using Persistence.Configurations;
+
+    using Microsoft.EntityFrameworkCore;
+
     public class AppDbContext : DbContext
     {
         public DbSet<Anime> Animes { get; set; }

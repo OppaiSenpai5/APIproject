@@ -1,12 +1,13 @@
-﻿using Models.Entities;
-using Models.Enums;
-using Persistence.Seed.XML;
-using System.Security.Cryptography;
-using System.Text;
-using System.Xml.Serialization;
-
-namespace Persistence.Seed
+﻿namespace Persistence.Seed
 {
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Xml.Serialization;
+
+    using Persistence.Seed.XML;
+    using Models.Entities;
+    using Models.Enums;
+
     internal static class Seeder
     {
         private static string animeXmlFilePath =

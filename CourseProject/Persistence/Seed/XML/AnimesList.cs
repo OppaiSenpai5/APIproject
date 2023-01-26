@@ -1,8 +1,9 @@
-﻿using Models.Entities;
-using System.Xml.Serialization;
-
-namespace Persistence.Seed.XML
+﻿namespace Persistence.Seed.XML
 {
+    using System.Xml.Serialization;
+
+    using Models.Entities;
+
     [XmlRoot("animes_list")]
     public class AnimesList
     {

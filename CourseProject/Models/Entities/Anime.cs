@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-
-namespace Models.Entities
+﻿namespace Models.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+    using System.Xml.Serialization;
+
     [XmlType("anime")]
     public record Anime : Entity
     {
