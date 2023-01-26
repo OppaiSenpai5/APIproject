@@ -1,10 +1,10 @@
-﻿using Models.Entities;
-using Service.Exceptions;
-using Service.Repositories.Interfaces;
-using Service.Services.Interfaces;
-
-namespace Service.Services
+﻿namespace Service.Services
 {
+    using Models.Entities;
+    using Service.Exceptions;
+    using Service.Repositories.Interfaces;
+    using Service.Services.Interfaces;
+
     public class Service<TEntity, TRepository> : IService<TEntity>
         where TEntity : Entity
         where TRepository : IRepository<TEntity>

@@ -76,18 +76,7 @@ $@"<html>
         </style>
     </head>
     <body>
-        <div class='header'><h1>This is the generated PDF report!!!</h1></div>
-        <table align='center'>
-            <tr>
-                <th>Entity</td>
-                <th>Count</th>
-            </tr>
-            <tr>
-                <td>Animes</td>
-                <td>{this.animes.Count()}</td>
-            </tr>
-        </table>
-
+        <div class='header'><h1>Total Amout of Animes {this.animes.Count()}</h1></div>
         <table align='center'>
             <tr>
                 <th>Year</td>

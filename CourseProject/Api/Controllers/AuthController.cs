@@ -1,5 +1,4 @@
-﻿
-namespace Api.Controllers
+﻿namespace Api.Controllers
 {
     using Models.Dtos;
     using Service.Services.Interfaces;
